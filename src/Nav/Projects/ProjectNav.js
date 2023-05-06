@@ -13,14 +13,16 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import NavItems from "./ProjectsNavItem";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Contact"];
 
 function DrawerAppBar(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
+    const [nav, setNav] = useState(NavItems);
 
     const handleDrawerToggle = () => {
         setMobileOpen((prevState) => !prevState);
@@ -29,14 +31,22 @@ function DrawerAppBar(props) {
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
             <Typography variant="h6" sx={{ my: 2 }}>
-                MUI
+                DC The Gawd
             </Typography>
             <Divider />
             <List>
-                {navItems.map((item) => (
+                {nav.map((item) => (
                     <ListItem key={item} disablePadding>
                         <ListItemButton sx={{ textAlign: "center" }}>
-                            <ListItemText primary={item} />
+                            <Link
+                                to={item.path}
+                                style={{
+                                    color: "blue",
+                                    textDecoration: "none",
+                                }}
+                            >
+                                <ListItemText primary={item.title} />
+                            </Link>
                         </ListItemButton>
                     </ListItem>
                 ))}
@@ -50,7 +60,7 @@ function DrawerAppBar(props) {
     return (
         <Box sx={{ display: "flex" }}>
             <CssBaseline />
-            <AppBar component="nav">
+            <AppBar component="nav" sx={{ position: "sticky" }}>
                 <Toolbar>
                     <IconButton
                         color="inherit"
@@ -69,14 +79,33 @@ function DrawerAppBar(props) {
                             display: { xs: "none", sm: "block" },
                         }}
                     >
-                        DC APP Project
+                        DC The Gawd
                     </Typography>
                     <Box sx={{ display: { xs: "none", sm: "block" } }}>
-                        {navItems.map((item) => (
-                            <Button key={item} sx={{ color: "#fff" }}>
-                                {item}
-                            </Button>
-                        ))}
+                        <List sx={{ display: "flex", minWidth: "350px" }}>
+                            {nav.map((item) => (
+                                <ListItem key={item.title} disablePadding>
+                                    <ListItemButton
+                                        sx={{
+                                            textAlign: "center",
+                                            justifyContent: "center",
+                                        }}
+                                    >
+                                        <Link
+                                            to={item.path}
+                                            style={{
+                                                color: "white",
+                                                textDecoration: "none",
+                                            }}
+                                        >
+                                            <ListItemText
+                                                primary={item.title}
+                                            />
+                                        </Link>
+                                    </ListItemButton>
+                                </ListItem>
+                            ))}
+                        </List>
                     </Box>
                 </Toolbar>
             </AppBar>
