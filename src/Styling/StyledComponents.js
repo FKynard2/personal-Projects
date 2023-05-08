@@ -21,16 +21,17 @@ export const FONT_XXL = "clamp(2.07rem, calc(1.51rem + 2.81vw), 4.88rem)";
 export const FONT_XXXL = "clamp(2.49rem, calc(1.77rem + 3.62vw), 6.10rem)";
 
 export const PrimaryContainer = styled(Box)(() => ({
-    width: "80%",
+    width: "60%",
     maxWidth: "1350px",
-    margin: "auto auto",
+    margin: "35% auto",
     backgroundColor: STYLEING_YELLOW,
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     justifyContent: "space-between",
+    transform: "rotate(270deg)",
     fontSize: FONT_XS,
     "@media (max-width: 600px)": {
-        flexDirection: "column",
+        transform: "rotate(0deg)",
     },
 }));
 export const Card = styled(Box)(() => ({

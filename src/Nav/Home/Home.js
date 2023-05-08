@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
-import Practice from "./pratice";
 import TOPNAV from "../nav";
+import ACCORDION from "../../features/Accordion"
 
 export default function Projects() {
     return (
@@ -9,11 +9,11 @@ export default function Projects() {
                 sx={{
                     width: "100%",
                     height: "100vh",
-                    backgroundColor: "darkgrey",
                 }}
             >
                <TOPNAV />
-                <Practice />
+               <ACCORDION />
+
             </Box>
         </>
     );

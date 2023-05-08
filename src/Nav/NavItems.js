@@ -4,7 +4,7 @@ const NavItems = [
         path: "/",
     },
     {
-        title: "RanGen",
+        title: "Randomizer",
         path: "/About",
     },
     {

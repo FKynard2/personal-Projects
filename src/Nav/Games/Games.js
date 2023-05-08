@@ -1,7 +1,6 @@
 import Box from "@mui/material/Box";
-
-
-import GAMENAV from "../Games/GamesNav";
+import GAMEACCNAV from "./GamseAccordion"
+import TOPNAV from "../nav";
 
 export default function Games() {
     return (
@@ -9,12 +8,10 @@ export default function Games() {
             <Box
                 sx={{
                     width: "100%",
-                    height: "100vh",
-                    backgroundColor: "darkgrey",
                 }}
             >
-                <GAMENAV />
-                <div>Games</div>
+                <TOPNAV />
+                <GAMEACCNAV />
             </Box>
         </>
     );

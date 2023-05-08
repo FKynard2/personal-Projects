@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
-import APPSNAV from "./AppsNav"
+import APPSACCORIONS from "./AppsAccordion"
+import TOPNAV from "../nav"
 
 
 
@@ -9,12 +10,12 @@ export default function Apps() {
             <Box
                 sx={{
                     width: "100%",
-                    height: "100vh",
-                    backgroundColor: "darkgrey",
+                
                 }}
             >
-                <APPSNAV />
-                <div>apps</div>
+                <TOPNAV />
+                <APPSACCORIONS />
+                
             </Box>
         </>
     );

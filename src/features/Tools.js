@@ -10,16 +10,22 @@
 //     "Frank3",
 //     "Mary",
 // ];
+//
+// const TOOLS = [
+//     "HashTable",
+//     "Arrayfill",
+//     "NewSet",
+//     "MergeSort",
+//     "Largest",
+//     "Matrix",
+//     "PointerM",
+//     "Recusion",
+// ];
 const TOOLS = [
-    "HashTable",
-    "Arrayfill",
-    "NewSet",
-    "MergeSort",
-    "Largest",
-    "Matrix",
-    "PointerM",
-    "Recusion",
+    "debounce",
+    "This Binding",
 ];
+
 // const TOOLS = [
 //     "Arby's",
 //     "McDonald's",

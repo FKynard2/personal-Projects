@@ -4,6 +4,10 @@ const NavItems = [
         path: "/",
     },
     {
+        title: "Projects",
+        path: "/Projects",
+    },
+    {
         title: "Upwork",
         path: "/Upwork",
     },

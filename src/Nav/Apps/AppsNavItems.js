@@ -4,6 +4,10 @@ const NavItems = [
         path: "/",
     },
     {
+        title: "Apps",
+        path: "/Apps",
+    },
+    {
         title: "MaxStrong",
         path: "/MaxStrong",
     },

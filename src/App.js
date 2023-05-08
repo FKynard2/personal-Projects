@@ -10,13 +10,13 @@ import UPWORK from "./Nav/Projects/UpworkFolder/Upwork";
 import BINACE from "./Nav/Projects/BinaceFolder/Binace";
 import UBER from "./Nav/Projects/UberFolder/Uber";
 //< This for the game section routes
-import TICTACTOE from "./Nav/Games/TicTacToe/TicTacToe"
-import CONNECTFOUR from "./Nav/Games/ConnectFour/ConnectFour"
-import WORDLE from "./Nav/Games/Wordle/Wordle"
+import TICTACTOE from "./Nav/Games/TicTacToe/TicTacToe";
+import CONNECTFOUR from "./Nav/Games/ConnectFour/ConnectFour";
+import WORDLE from "./Nav/Games/Wordle/Wordle";
 //< This for the app section routes
-import MAXSTRONG from "./Nav/Apps/MaxStrongApp/MaxStrong"
-import DASHCAM from "./Nav/Apps/CamApp/DashCam"
-import FOODAPP from "./Nav/Apps/FoodApp/FoodAppFile"
+import MAXSTRONG from "./Nav/Apps/MaxStrongApp/MaxStrong";
+import DASHCAM from "./Nav/Apps/CamApp/DashCam";
+import FOODAPP from "./Nav/Apps/FoodApp/FoodAppFile";
 
 export default function App() {
     return (

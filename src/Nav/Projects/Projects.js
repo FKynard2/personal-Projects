@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box";
-
-import ProjectNav from "./ProjectNav";
+import TOPNAV from "../nav";
+import PROJECTSACCDION from "./ProjectsAccordion";
 
 export default function Projects() {
     return (
@@ -8,12 +8,10 @@ export default function Projects() {
             <Box
                 sx={{
                     width: "100%",
-                    height: "100vh",
-                    backgroundColor: "darkgrey",
                 }}
             >
-                <ProjectNav />
-                <div>Projects</div>
+                <TOPNAV />
+                <PROJECTSACCDION />
             </Box>
         </>
     );
