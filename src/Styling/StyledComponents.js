@@ -24,7 +24,6 @@ export const PrimaryContainer = styled(Box)(() => ({
     width: "60%",
     maxWidth: "1350px",
     margin: "35% auto",
-    backgroundColor: STYLEING_YELLOW,
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -51,7 +50,7 @@ export const Card = styled(Box)(() => ({
 
 export const GeneratedBtnContainer = styled(Box)(() => ({
     width: "50%",
-    minHeight: "100vh",
+    maxWidth: "640px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
@@ -72,9 +71,27 @@ export const GeneratedBtn = styled(Button)(() => ({
 }));
 
 export const ButtonContainer = styled(Box)(() => ({
-    width: "35%",
+    width: "100%",
     display: "flex",
     flexDirection: "row",
     borderRadius: "2px",
     justifyContent: "space-between",
+}));
+
+export const SimSimSalabimContainer = styled(Box)(() => ({
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+}));
+
+export const ImageContainer = styled(Box)(() => ({
+    width: "42%",
+    margin: "20px auto",
+    background: `rgb(67,41,28) linear-gradient(90deg, rgba(67,41,28,1) 7%, rgba(144,125,41,1) 53%, rgba(67,41,28,1) 92%)`,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    borderRadius: "50px",
+    
 }));
