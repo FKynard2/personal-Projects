@@ -12,43 +12,24 @@ import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
 let initialFields = ["Buy a Car", "Buy a House", "Go on vacation"];
+let fortunes = [
+    "YES",
+    "NO",
+    "Ask Tomorrow",
+    "Not Likley",
+    "It Looks Good From My View",
+    "Please ask again",
+];
 
 export function RandomButton() {
     const [field, setField] = useState(initialFields);
+    const [answers, setAnswers] = useState(fortunes);
     const [remainingFields, setRemainingField] = useState(null);
-    const [allFieldsChosen, setAllFieldsChosen] = useState(false);
     const [noFieldsChosen, setnoFieldsChosen] = useState(true);
+    const [oneFieldsChosen, setOneFieldsChosen] = useState(false);
     const [sim, setSim] = useState(false);
     const [Sim, setSimTwo] = useState(false);
     const [salbim, setSalabim] = useState(false);
-
-    // function simSimSalabim() {
-    //     if (field.length > 0) {
-    //         setTimeout(() => {
-    //             setnoFieldsChosen(false);
-    //             setSim(true);
-    //         }, 500);
-    //         setTimeout(() => {
-    //             setSimTwo(true);
-    //         }, 1000);
-
-    //         setTimeout(() => {
-    //             setSalabim(true);
-    //         }, 1500);
-    //         setTimeout(() => {
-    //             setSim(false);
-    //             setSimTwo(false);
-    //             setSalabim(false);
-    //         }, 2200);
-    //         setTimeout(() => {
-    //             setAllFieldsChosen(false);
-    //         }, 500);
-    //     } else if (field.length <= 0) {
-    //         setTimeout(() => {
-    //             setAllFieldsChosen(true);
-    //         }, 500);
-    //     }
-    // }
 
     function simSimSalabim() {
         const timeoutValues = [500, 1000, 1500, 2200, 500];
@@ -64,7 +45,7 @@ export function RandomButton() {
                 setSimTwo(false);
                 setSalabim(false);
             },
-            () => setAllFieldsChosen(false),
+            () => setOneFieldsChosen(false),
         ];
 
         if (field.length > 0) {
@@ -73,22 +54,24 @@ export function RandomButton() {
                     stateUpdateFunctions[index]();
                 }, value);
             });
-        } else if (field.length <= 0) {
-            setTimeout(() => {
-                setAllFieldsChosen(true);
-            }, timeoutValues[0]);
         }
     }
 
     function randomGeneratedField() {
         setTimeout(() => {
-            if (field.length > 0) {
+            if (field.length === 1) {
+                const index = Math.floor(Math.random() * answers.length);
+                const newupdatedFields = answers[index];
+                setRemainingField(newupdatedFields);
+                setOneFieldsChosen(false);
+            } else if (field.length > 1) {
                 const index = Math.floor(Math.random() * field.length);
                 const newupdatedFields = [...field];
                 const newRandomField = newupdatedFields.splice(index, 1)[0];
                 setField(newupdatedFields);
                 setRemainingField(newRandomField);
                 setnoFieldsChosen(false);
+                setOneFieldsChosen(false);
             }
         }, 2200);
         setTimeout(() => {
@@ -99,8 +82,8 @@ export function RandomButton() {
     function resetFields() {
         setField(initialFields);
         setnoFieldsChosen(true);
+        setOneFieldsChosen(false);
         setRemainingField(null);
-        setAllFieldsChosen(false);
         setSim(false);
         setSimTwo(false);
         setSalabim(false);
@@ -116,12 +99,20 @@ export function RandomButton() {
     function handleAddField() {
         const updatedFields = [...field, ""];
         setField(updatedFields);
+        if (updatedFields.length > 1) {
+            setOneFieldsChosen(false);
+            setnoFieldsChosen(true);
+        }
     }
 
     function handleRemoveField() {
         const updatedFields = [...field];
         updatedFields.pop();
         setField(updatedFields);
+        if (updatedFields.length === 1) {
+            setOneFieldsChosen(true);
+            setnoFieldsChosen(false);
+        }
     }
 
     function generateRandomField() {
@@ -136,14 +127,11 @@ export function RandomButton() {
             value={field}
             onChange={(e) => handleInputChange(e, index)}
             sx={{
-                // set the border to a blue color
-                borderRadius: "5px", // round the corners of the border
+                borderRadius: "5px",
                 "& .MuiInputBase-input": {
-                    // target the input element of the TextField
                     color: "white",
                     border: " 2px solid white",
-                    borderRadius: "5px", // set the color of the text to red
-                    // set the font weight of the text to bold
+                    borderRadius: "5px",
                 },
             }}
         />
@@ -197,22 +185,22 @@ export function RandomButton() {
                     </Button>
                     <Button
                         variant="contained"
-                        disabled={field.length < 3}
-                        className={field.length < 3 ? "disabled-button" : ""}
+                        disabled={field.length < 2}
+                        className={field.length < 2 ? "disabled-button" : ""}
                         sx={{
                             backgroundColor:
-                                field.length < 3 ? "grey" : "#907d29",
+                                field.length < 2 ? "grey" : "#907d29",
                             color: "white",
                             cursor:
-                                field.length < 3 ? "not-allowed" : "pointer",
+                                field.length < 2 ? "not-allowed" : "pointer",
                             "&:hover": {
                                 backgroundColor:
-                                    field.length < 3 ? "grey" : "#6b5709",
+                                    field.length < 2 ? "grey" : "#6b5709",
                                 color: "white",
                             },
                             "&:focus": {
                                 backgroundColor:
-                                    field.length < 3 ? "grey" : "#6b5709",
+                                    field.length < 2 ? "grey" : "#6b5709",
                                 color: "white",
                             },
                             "&.disabled-button": {
@@ -235,8 +223,9 @@ export function RandomButton() {
                 </Stack>
             </Stack>
 
-            {noFieldsChosen && <p>What's your next move.</p>}
-            {allFieldsChosen && <p>No more fortune left.</p>}
+            {noFieldsChosen && <p>Hodgie makes tough decisions easy.</p>}
+            {oneFieldsChosen && <p>Ask Hodgie for a direct answer.</p>}
+
             <SimSimSalabimContainer>
                 {sim && <p>Sim</p>}
                 {Sim && <p>Sim</p>}

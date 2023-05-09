@@ -58,8 +58,9 @@ export const GeneratedBtnContainer = styled(Box)(() => ({
     borderRadius: "2px",
     padding: "50px",
     margin: "auto",
-    fontSize: FONT_MEDIUM,
+    fontSize: FONT_SMALL,
     color: "white",
+    textAlign: "center",
 }));
 export const GeneratedBtn = styled(Button)(() => ({
     padding: "10px",

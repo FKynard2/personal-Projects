@@ -80,6 +80,7 @@ function Accordion() {
                                     : ""}
                                 <img
                                     className="accordion-image"
+                                    loading="lazy"
                                     src={`${Panels.image}`}
                                     alt={`An image related to ${Panels.title}`}
                                 />
