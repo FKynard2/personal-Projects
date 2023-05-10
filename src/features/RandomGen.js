@@ -11,7 +11,7 @@ import Stack from "@mui/material/Stack";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-let initialFields = ["Buy a Car", "Buy a House", "Go on vacation"];
+let initialFields = ["Buy a Car", "Buy a House", "Go on vacation", "Stay Home"];
 let fortunes = [
     "YES",
     "NO",
@@ -102,6 +102,7 @@ export function RandomButton() {
         if (updatedFields.length > 1) {
             setOneFieldsChosen(false);
             setnoFieldsChosen(true);
+            setRemainingField(false);
         }
     }
 
@@ -122,7 +123,6 @@ export function RandomButton() {
     const inputFields = field.map((field, index) => (
         <TextField
             key={index}
-            fullWidth
             label=""
             value={field}
             onChange={(e) => handleInputChange(e, index)}
@@ -132,6 +132,7 @@ export function RandomButton() {
                     color: "white",
                     border: " 2px solid white",
                     borderRadius: "5px",
+                    marginLeft: 0,
                 },
             }}
         />
@@ -140,7 +141,9 @@ export function RandomButton() {
     return (
         <GeneratedBtnContainer>
             <Stack sx={{ width: "100%" }} spacing={2} direction="column">
-                {inputFields}
+                <Stack spacing={1} direction="row" sx={{flexWrap: "wrap", justifyContent: "space-between"}}>
+                    {inputFields}
+                </Stack>
                 <Stack
                     sx={{ justifyContent: "space-between" }}
                     spacing={2}
@@ -148,22 +151,22 @@ export function RandomButton() {
                 >
                     <Button
                         variant="contained"
-                        disabled={field.length > 8}
-                        className={field.length > 8 ? "disabled-button" : ""}
+                        disabled={field.length > 5}
+                        className={field.length > 5 ? "disabled-button" : ""}
                         sx={{
                             backgroundColor:
-                                field.length > 8 ? "grey" : "#907d29",
+                                field.length > 5 ? "grey" : "#907d29",
                             color: "white",
                             cursor:
-                                field.length > 8 ? "not-allowed" : "pointer",
+                                field.length > 5 ? "not-allowed" : "pointer",
                             "&:hover": {
                                 backgroundColor:
-                                    field.length > 8 ? "grey" : "#6b5709",
+                                    field.length > 5 ? "grey" : "#6b5709",
                                 color: "white",
                             },
                             "&:focus": {
                                 backgroundColor:
-                                    field.length > 8 ? "grey" : "#6b5709",
+                                    field.length > 5 ? "grey" : "#6b5709",
                                 color: "white",
                             },
                             "&.disabled-button": {
