@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import { RandomButton } from "../../features/RandomGen";
 import TOPNAV from "../nav";
-import bgImage from "../../features/images/simsim.jpg";
+
 import { ImageContainer } from "../../Styling/StyledComponents";
 
 export default function About() {
@@ -20,11 +20,11 @@ export default function About() {
                 <TOPNAV />
                 <ImageContainer>
                     <img
-                        src={bgImage}
+                        src="https://ik.imagekit.io/6of9atvnc/personal_project/simImage.jpg?updatedAt=1684202276539"
                         style={{
                             borderRadius: "50px",
                             // backgroundBlendMode: "multiply",
-                            padding: "10px"
+                            padding: "10px",
                         }}
                     />
                 </ImageContainer>

@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-
+import Typography from "@mui/material/Typography";
 import {
     STYLEING_YELLOW,
     STYLEING_GREEN,
@@ -61,10 +61,21 @@ export const GeneratedBtnContainer = styled(Box)(() => ({
     fontSize: FONT_SMALL,
     color: "white",
     textAlign: "center",
+    position: "relative",
+    "@media (max-width: 1200px)": {
+        width: "85%",
+        padding: 0,
+    },
+    "@media (max-width: 1000px)": {
+        width: "70%",
+    },
+    "@media (max-width: 800px)": {
+        width: "75%",
+    },
 }));
 export const GeneratedBtn = styled(Button)(() => ({
     padding: "10px",
-    fontSize: "32px",
+    fontSize: FONT_SMALL,
     backgroundColor: "content-box",
     border: "1px solid white",
     color: "white",
@@ -85,6 +96,23 @@ export const SimSimSalabimContainer = styled(Box)(() => ({
     flexDirection: "row",
     justifyContent: "space-evenly",
 }));
+export const EmptyQuestion = styled(Typography)(() => ({
+    position: "absolute",
+    width: "100%",
+    background: `rgb(67,41,28) linear-gradient(90deg, rgba(67,41,28,1) 7%, rgba(144,125,41,1) 53%, rgba(67,41,28,1) 92%)`,
+    top: "0%",
+    borderRadius: "10px",
+    padding: "10px",
+    fontSize: FONT_XS,
+    "@media (max-width: 1200px)": {
+       fontSize: FONT_SMALL,
+    },
+    "@media (max-width: 600px)": {
+       minHeight: "405px",
+       display: "flex",
+       alignItems: "center",
+    },
+}));
 
 export const ImageContainer = styled(Box)(() => ({
     width: "42%",
@@ -94,5 +122,4 @@ export const ImageContainer = styled(Box)(() => ({
     flexDirection: "row",
     justifyContent: "center",
     borderRadius: "50px",
-    
 }));

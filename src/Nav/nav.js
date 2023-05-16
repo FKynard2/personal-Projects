@@ -35,8 +35,8 @@ function DrawerAppBar(props) {
             </Typography>
             <Divider />
             <List>
-                {nav.map((item) => (
-                    <ListItem key={item} disablePadding>
+                {nav.map((item, idx) => (
+                    <ListItem key={idx} disablePadding>
                         <ListItemButton sx={{ textAlign: "center" }}>
                             <Link
                                 to={item.path}
