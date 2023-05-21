@@ -1,7 +1,9 @@
+import { styled, keyframes } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import WestIcon from "@mui/icons-material/West";
+// import { keyframes, styled } from "styled-components";
 import {
     STYLEING_YELLOW,
     STYLEING_GREEN,
@@ -19,6 +21,9 @@ export const FONT_LARGE = "clamp(1.44rem, calc(1.10rem + 1.69vw), 3.13rem)";
 export const FONT_XL = "clamp(1.73rem, calc(1.29rem + 2.18vw), 3.91rem)";
 export const FONT_XXL = "clamp(2.07rem, calc(1.51rem + 2.81vw), 4.88rem)";
 export const FONT_XXXL = "clamp(2.49rem, calc(1.77rem + 3.62vw), 6.10rem)";
+
+export const HODGIE_GOLD = "#907d29";
+export const HODGIE_BROWN = "#6b5709";
 
 export const PrimaryContainer = styled(Box)(() => ({
     width: "60%",
@@ -105,12 +110,12 @@ export const EmptyQuestion = styled(Typography)(() => ({
     padding: "10px",
     fontSize: FONT_XS,
     "@media (max-width: 1200px)": {
-       fontSize: FONT_SMALL,
+        fontSize: FONT_SMALL,
     },
     "@media (max-width: 600px)": {
-       minHeight: "405px",
-       display: "flex",
-       alignItems: "center",
+        minHeight: "405px",
+        display: "flex",
+        alignItems: "center",
     },
 }));
 
@@ -122,4 +127,91 @@ export const ImageContainer = styled(Box)(() => ({
     flexDirection: "row",
     justifyContent: "center",
     borderRadius: "50px",
+}));
+
+export const Modal = styled(Box)(() => ({
+    width: "30%",
+    position: "absolute",
+    backgroundColor: "rgb(67 41 28 / 67%);",
+    display: "flex",
+    flexDirection: "column",
+    borderRadius: "10px",
+    color: HODGIE_BROWN,
+    fontSize: FONT_XS,
+    zIndex: "10",
+    "@media (max-width: 600px)": {
+        backgroundColor: STYLEING_PURPLE,
+    },
+}));
+
+const slideAnimation = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-60px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
+export const RotatedWestIcon = styled(Box)`
+    position: absolute;
+`;
+export const AnimatedWestIcon = styled(WestIcon)`
+    animation: ${slideAnimation} 1s infinite;
+    font-size: ${FONT_XXXL};
+    position: absolute;
+    color: white;
+`;
+//! This is for the styling of the connect 4 games
+export const PlayerTypography = styled(Typography)(() => ({
+    display: "flex",
+}));
+export const PlayerHero = styled(Box)(() => ({
+    display: "flex",
+    justifyContent: "space-evenly",
+    padding: "1.125rem",
+}));
+export const MainContent = styled(Box)(() => ({
+    display: "flex",
+    justifyContent: "space-evenly",
+}));
+export const ColorChangeBox = styled(Box)(() => ({
+    display: "flex",
+    justifyContent: "center",
+}));
+export const ColorChangeBtn1 = styled(Box)(() => ({
+    width: "10%",
+    margin: "auto",
+    // backgroundColor: STYLEING_ORANGE,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    borderRadius: "2px",
+}));
+export const ColorChangeBtn2 = styled(Box)(() => ({
+    width: "10%",
+    margin: "auto",
+    // backgroundColor: STYLEING_ORANGE,
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    borderRadius: "2px",
+}));
+
+export const ConnectFourBoardBackground = styled(Box)(() => ({
+    padding: "1rem",
+
+    borderRadius: "2rem",
+    margin: "2rem 2rem",
+
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+}));
+export const Token = styled(Box)(() => ({
+    borderRadius: "50%",
+    width: "50px",
+    height: "50px",
 }));

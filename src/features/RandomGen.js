@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Typography from "@mui/material/Typography";
+
 import { EmptyQuestion } from "../Styling/StyledComponents";
 import {
     SimSimSalabimContainer,
@@ -13,7 +13,7 @@ import Stack from "@mui/material/Stack";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 
-let initialFields = ["Buy a Car", "Buy a House", "Go on vacation", "Stay Home"];
+let initialFields = ["Buy a Car"];
 let fortunes = [
     "Affirmative!",
     "Negative, buddy.",
@@ -23,7 +23,7 @@ let fortunes = [
     "I kindly request you to ask once more, my friend.",
 ];
 
-export function RandomButton() {
+export function RandomButton({ setStage }) {
     const [field, setField] = useState(initialFields);
     const [answers, setAnswers] = useState(fortunes);
     const [textfield, setTextField] = useState(null);
@@ -33,6 +33,9 @@ export function RandomButton() {
     const [sim, setSim] = useState(false);
     const [Sim, setSimTwo] = useState(false);
     const [salbim, setSalabim] = useState(false);
+
+    const [stage, setStages] = useState(setStage);
+
     function simSimSalabim() {
         const timeoutValues = [500, 1000, 1500, 2200, 500];
         const stateUpdateFunctions = [
@@ -82,7 +85,6 @@ export function RandomButton() {
             setRemainingField(null);
         }, 500);
     }
-
     function resetFields() {
         setField(initialFields);
         setnoFieldsChosen(true);
@@ -92,6 +94,7 @@ export function RandomButton() {
         setSimTwo(false);
         setSalabim(false);
         setTextField(false);
+        setStages(0);
     }
 
     function handleInputChange(e, index) {
@@ -279,7 +282,6 @@ export function RandomButton() {
                     hidden truths behind this empty question. Please Reset to
                     Continue.
                 </EmptyQuestion>
-            
             )}
             {oneFieldsChosen && (
                 <p style={{ color: "#907d29" }}>
