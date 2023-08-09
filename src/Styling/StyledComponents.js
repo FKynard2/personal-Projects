@@ -173,6 +173,11 @@ export const PlayerHero = styled(Box)(() => ({
     justifyContent: "space-evenly",
     padding: "1.125rem",
 }));
+export const PlayerTokenBox = styled(Box)(() => ({
+    backgroundColor: "lightgray",
+    padding: "3px 10px",
+    borderRadius: "10px",
+}));
 export const MainContent = styled(Box)(() => ({
     display: "flex",
     justifyContent: "space-evenly",
@@ -180,22 +185,17 @@ export const MainContent = styled(Box)(() => ({
 export const ColorChangeBox = styled(Box)(() => ({
     display: "flex",
     justifyContent: "center",
+    flexDirection: "column",
 }));
 export const ColorChangeBtn1 = styled(Box)(() => ({
-    width: "10%",
-    margin: "auto",
-    // backgroundColor: STYLEING_ORANGE,
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     justifyContent: "space-evenly",
     borderRadius: "2px",
 }));
 export const ColorChangeBtn2 = styled(Box)(() => ({
-    width: "10%",
-    margin: "auto",
-    // backgroundColor: STYLEING_ORANGE,
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     justifyContent: "space-evenly",
     borderRadius: "2px",
 }));
@@ -210,8 +210,31 @@ export const ConnectFourBoardBackground = styled(Box)(() => ({
     flexDirection: "column",
     justifyContent: "space-between",
 }));
+export const ConnectFourBoard = styled(Box)(() => ({
+    display: "flex",
+}));
+export const ConnectFourColumn = styled(Button)(() => ({
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+}));
+export const ConnectFourTile = styled(Box)(() => ({
+    width: "70px",
+    height: "70px",
+    margin: "3px",
+    borderRadius: "50%",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "darkgray",
+}));
 export const Token = styled(Box)(() => ({
     borderRadius: "50%",
     width: "50px",
     height: "50px",
+}));
+export const BoardToken = styled(Box)(() => ({
+    borderRadius: "50%",
+    width: "100%",
+    height: "100%",
 }));
