@@ -154,7 +154,7 @@ export default function ConnectFour({
                     Player {winner} Wins
                 </Typography>
             )}
-            {boardFull === true && winner == 3 && (
+            {boardFull === true && winner === 3 && (
                 <Typography
                     variant="h3"
                     style={{
@@ -227,7 +227,8 @@ function Column({
         if (openRow === -1) {
             return;
         }
-
+        
+        
         if (yourTurn) {
             newBoard[openRow][colIndex] = 1;
         } else if (!yourTurn && level === 3) {
@@ -261,7 +262,6 @@ function Column({
 
                 const newBoard = board.map((col) => col.slice());
                 newBoard[computerRow][computerCol] = 2;
-
                 setBoard(newBoard);
                 setYourTurn(true);
 
@@ -320,3 +320,4 @@ function Column({
         </ConnectFourColumn>
     );
 }
+  
