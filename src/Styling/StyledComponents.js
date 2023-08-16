@@ -238,3 +238,20 @@ export const BoardToken = styled(Box)(() => ({
     width: "100%",
     height: "100%",
 }));
+
+
+//This is for the tictactoe
+export const ContainerRed = styled(Box)(() => ({
+    width: "80px",
+    height: "80px",
+    backgroundColor: STYLEING_RED,
+    float: "left",
+    fontSize: "60px",
+    fontWeight: "bold",
+    lineHeight: "80px",
+    marginRight: "-1px",
+    marginTop: "-1px",
+    padding: "0",
+    textAlign: "center",
+    borderRadius: "2px",
+}));
