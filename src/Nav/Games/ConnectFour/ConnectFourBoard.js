@@ -8,7 +8,7 @@ import {
     getEmptyRow,
     checkBoardFull,
     checkGameOver,
-    bestPlacement
+    bestPlacement,
 } from "./CFourAI";
 
 import {
@@ -26,6 +26,12 @@ var emptyBoard = [];
 for (let i = 0; i < NUM_ROW; i++) {
     emptyBoard.push(new Array(NUM_COL).fill(0));
 }
+const levelButtons = [
+    { text: "Easy", level: 0 },
+    { text: "Medium", level: 1 },
+    { text: "Hard", level: 2 },
+    { text: "PVP", level: 3 },
+];
 
 export default function ConnectFour({
     player1,
@@ -33,16 +39,20 @@ export default function ConnectFour({
     player1Border,
     player2Border,
     boardBorder,
-    boardBackground
+    boardBackground,
 }) {
-
     const [level, setLevel] = useState(0); // 0 for easy, 1 for medium, 2 for hard
     const [board, setBoard] = useState(emptyBoard); // 0 for empty cell, 1 for you(black), 2 for opponent(red)
     const [yourTurn, setYourTurn] = useState(true); // true if your turn, false if opponent's
     const [winner, setWinner] = useState(0); // 0 no one/game still going, 1 you, 2 opponent, 3 tie
     const boardFull = checkBoardFull(board);
-   
 
+    const buttonStyle = {
+        color: `${boardBackground}`,
+        textAlign: "center",
+        padding: ".5rem",
+        backgroundColor: `${boardBorder}`,
+    };
     const ResetClickHandler = () => {
         setBoard(emptyBoard);
         setYourTurn(true);
@@ -56,54 +66,16 @@ export default function ConnectFour({
     return (
         <>
             <ButtonContainer>
-                <Button
-                    style={{
-                        color: `${boardBackground}`,
-                        textAlign: "center",
-                        padding: ".5rem",
-                        backgroundColor: `${boardBorder}`,
-                    }}
-                    disabled={level === 0}
-                    onClick={() => levelClick(0)}
-                >
-                    Easy
-                </Button>
-                <Button
-                    style={{
-                        color: `${boardBackground}`,
-                        textAlign: "center",
-                        padding: ".5rem",
-                        backgroundColor: `${boardBorder}`,
-                    }}
-                    disabled={level === 1}
-                    onClick={() => levelClick(1)}
-                >
-                    Medium
-                </Button>
-                <Button
-                    style={{
-                        color: `${boardBackground}`,
-                        textAlign: "center",
-                        padding: ".5rem",
-                        backgroundColor: `${boardBorder}`,
-                    }}
-                    disabled={level === 2}
-                    onClick={() => levelClick(2)}
-                >
-                    Hard
-                </Button>
-                <Button
-                    style={{
-                        color: `${boardBackground}`,
-                        textAlign: "center",
-                        padding: ".5rem",
-                        backgroundColor: `${boardBorder}`,
-                    }}
-                    disabled={level === 3}
-                    onClick={() => levelClick(3)}
-                >
-                    PVP
-                </Button>
+                {levelButtons.map((button) => (
+                    <Button
+                        key={button.level}
+                        style={buttonStyle}
+                        disabled={level === button.level}
+                        onClick={() => levelClick(button.level)}
+                    >
+                        {button.text}
+                    </Button>
+                ))}
             </ButtonContainer>
 
             {yourTurn === true && winner === 0 && (
@@ -227,8 +199,7 @@ function Column({
         if (openRow === -1) {
             return;
         }
-        
-        
+
         if (yourTurn) {
             newBoard[openRow][colIndex] = 1;
         } else if (!yourTurn && level === 3) {
@@ -320,4 +291,3 @@ function Column({
         </ConnectFourColumn>
     );
 }
-  
