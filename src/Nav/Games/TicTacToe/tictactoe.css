@@ -21,15 +21,15 @@ body {
     background: #4b0000;
     border: 1px solid #999;
     float: left;
-    font-size: 60px;
+    font-size: 150px;
     font-weight: bold;
     line-height: 80px;
-    height: 80px;
     margin-right: -1px;
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 80px;
+    width: 230px;
+    height: 230px;
   }
   
   .square:focus {
@@ -49,3 +49,17 @@ body {
     margin-left: 20px;
   }
   
+  @media (max-width: 950px) {
+    .square {
+        font-size: 6vw; /* Adjust font size for larger screens */
+        width: 130px;
+        height: 130px;
+    }
+}
+  @media (max-width: 500px) {
+    .square {
+        font-size: 5vw; /* Adjust font size for larger screens */
+        width: 80px;
+        height: 80px;
+    }
+}

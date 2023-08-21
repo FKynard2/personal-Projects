@@ -241,17 +241,22 @@ export const BoardToken = styled(Box)(() => ({
 
 
 //This is for the tictactoe
-export const ContainerRed = styled(Box)(() => ({
-    width: "80px",
-    height: "80px",
-    backgroundColor: STYLEING_RED,
-    float: "left",
-    fontSize: "60px",
-    fontWeight: "bold",
-    lineHeight: "80px",
-    marginRight: "-1px",
-    marginTop: "-1px",
-    padding: "0",
-    textAlign: "center",
+export const Hero = styled(Box)(() => ({
+    width: "80%",
+    height: "80vh",
+    margin: "0 auto",
+    // backgroundColor: STYLEING_YELLOW,
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center"
+}));
+
+export const PlayerSelect = styled(Box)(() => ({
+    width: "100%",
+    // backgroundColor: STYLEING_RED,
+    display: "flex",
+    justifyContent: "space-between",
     borderRadius: "2px",
+    padding: "10px 0"
 }));

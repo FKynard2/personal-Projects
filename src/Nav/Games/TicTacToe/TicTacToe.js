@@ -1,9 +1,22 @@
 import Box from "@mui/material/Box";
-
+import Button from "@mui/material/Button";
 import GAMENAV from "../GamesNav";
 import React from "react";
 import "./tictactoe.css";
-import { ContainerRed } from "../../../Styling/StyledComponents";
+import { Hero, PlayerSelect } from "../../../Styling/StyledComponents";
+
+
+const levelButtons = [
+    { text: "1 player", level: 0 },
+    { text: "2 Player", level: 1 },
+];
+
+const buttonStyle = {
+    color: "red",
+    textAlign: "center",
+    padding: ".5rem",
+    backgroundColor: "black",
+};
 
 export default function TicTacToe() {
     return (
@@ -16,8 +29,10 @@ export default function TicTacToe() {
                 }}
             >
                 <GAMENAV />
-                <div>TicTacToe</div>
-                <Game />
+                
+                <Hero>
+                    <Game />
+                </Hero>
             </Box>
         </>
     );
@@ -122,24 +137,42 @@ class Board extends React.Component {
     handleClick(i) {
         let squares = [...this.state.squares];
         if (squares[i] || this.gameOver(squares)) return;
-        const currentPlayer = this.state.YourTurn ? "X" : "O";
-        squares[i] = currentPlayer;
-        const best = this.minimize(squares);
-        this.setState({ squares, YourTurn: !this.state.YourTurn });
+        if (this.state.levelClick === 0) {
+            squares[i] = "X";
+            this.setState({ squares, YourTurn: !this.state.YourTurn });
 
-        // setTimeout(() => {
-        //     squares[best[1]] = "O";
-        //     this.setState({ squares });
-        // }, 1000);
+            setTimeout(() => {
+                const best = this.minimize(squares);
+                squares[best[1]] = "O";
+                this.setState({ squares });
+            }, 1000);
+        } else if (this.state.levelClick === 1) {
+            const currentPlayer = this.state.YourTurn ? "X" : "O";
+            squares[i] = currentPlayer;
+            this.setState({ squares, YourTurn: !this.state.YourTurn });
+        }
     }
-    levelClick(i) {
-        console.log("yes");
+
+    levelClick(ButtonNum) {
+        this.setState({ levelClick: ButtonNum });
+        this.setState({
+            squares: new Array(9).fill(null),
+        });
     }
+
     playerSelect(i) {
         return (
             <>
-                <button onClick={() => this.levelClick(i)}>1 Player</button>
-                <button onClick={() => this.levelClick(i)}>2 Player</button>
+                {levelButtons.map((button) => (
+                    <Button
+                        key={button.level}
+                        disabled={this.state.levelClick === button.level}
+                        onClick={() => this.levelClick(button.level)}
+                        style={buttonStyle}
+                    >
+                        {button.text}
+                    </Button>
+                ))}
             </>
         );
     }
@@ -189,7 +222,11 @@ class Board extends React.Component {
                         </button>
                     </div>
                 )}
-                {this.playerSelect(0)}
+                <PlayerSelect>
+
+                {this.playerSelect()}
+                </PlayerSelect>
+
                 <div className="board-row">
                     {this.renderSquare(0)}
                     {this.renderSquare(1)}
