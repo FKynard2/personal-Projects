@@ -32,7 +32,7 @@ function WordleGame() {
     const [currentGuess, setCurrentGuess] = useState("");
     const [solution, setSolution] = useState(null);
     const [isGameOver, SetIsGameOver] = useState(false);
-  
+    const [winner, SetWinner] = useState(false);
 
     const hardcodedWords = [
         "apple",
@@ -140,12 +140,18 @@ function WordleGame() {
     useEffect(() => {
         if (
             guesses[currentGuessIndex - 1] === solution ||
+            (guesses[currentGuessIndex + NUM_GUESSES] === solution &&
+                currentGuessIndex === -1)
+        ) {
+            SetWinner(true);
+        } else if (
+            guesses[currentGuessIndex - 1] !== solution &&
             currentGuessIndex === -1
         ) {
             SetIsGameOver(true);
         }
     }, [guesses, currentGuessIndex, solution]);
-   
+
     if (solution == null) return null;
 
     function handleResetClick() {
@@ -157,11 +163,32 @@ function WordleGame() {
             ].toLowerCase()
         );
         SetIsGameOver(false);
+        SetWinner(false);
     }
     return (
         <div className="board">
             {isGameOver === true && (
-                <div style={{ color: "red" }}>GameOver</div>
+                <div
+                    style={{
+                        color: "red",
+                        width: "10%",
+                        margin: "auto",
+                    }}
+                >
+                    GameOver
+                </div>
+            )}
+            {winner === true && (
+                <div
+                    style={{
+                        color: "red",
+                        width: "10%",
+                        margin: "auto",
+                        padding: "10px",
+                    }}
+                >
+                    Winner!!!
+                </div>
             )}
             {guesses.map((guess, i) => {
                 return (
@@ -178,7 +205,17 @@ function WordleGame() {
                     />
                 );
             })}
-            <button onClick={() => handleResetClick()}>Reset</button>
+            <button
+                style={{
+                    width: "10%",
+                    margin: "auto",
+                    padding: "10px",
+                    marginTop: "20px",
+                }}
+                onClick={() => handleResetClick()}
+            >
+                Reset
+            </button>
         </div>
     );
 }
