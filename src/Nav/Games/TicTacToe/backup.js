@@ -93,7 +93,6 @@ class Board extends React.Component {
 
         return [bestValue, bestMove];
     }
-
     handleClick(i) {
         let squares = [...this.state.squares];
         if (squares[i] || this.gameOver(squares)) return;
