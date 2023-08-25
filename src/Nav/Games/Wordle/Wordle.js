@@ -4,6 +4,7 @@ import { useState, useReducer } from "react";
 import { useEffect } from "react";
 import GAMENAV from "../GamesNav";
 import "./wordle.css";
+import { ResetButton, WordleHero } from "../../../Styling/StyledComponents";
 
 export default function Wordle() {
     return (
@@ -16,7 +17,7 @@ export default function Wordle() {
                 }}
             >
                 <GAMENAV />
-                <div>Wordle</div>
+                <WordleHero>Wordle</WordleHero>
                 <WordleGame />
             </Box>
         </>
@@ -173,6 +174,7 @@ function WordleGame() {
                         color: "red",
                         width: "10%",
                         margin: "auto",
+                        textAlign: "center",
                     }}
                 >
                     GameOver
@@ -185,6 +187,7 @@ function WordleGame() {
                         width: "10%",
                         margin: "auto",
                         padding: "10px",
+                        textAlign: "center",
                     }}
                 >
                     Winner!!!
@@ -205,17 +208,8 @@ function WordleGame() {
                     />
                 );
             })}
-            <button
-                style={{
-                    width: "10%",
-                    margin: "auto",
-                    padding: "10px",
-                    marginTop: "20px",
-                }}
-                onClick={() => handleResetClick()}
-            >
-                Reset
-            </button>
+            <ResetButton onClick={() => handleResetClick()}>Reset</ResetButton>
+           
         </div>
     );
 }

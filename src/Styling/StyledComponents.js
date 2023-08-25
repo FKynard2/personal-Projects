@@ -260,3 +260,34 @@ export const PlayerSelect = styled(Box)(() => ({
     borderRadius: "2px",
     padding: "10px 0"
 }));
+
+//This for Wordle
+
+export const ResetButton = styled(Button)(() => ({
+    width: "10%",
+    margin: " 20px auto",
+    padding: "5px",
+    fontSize: FONT_XXS,
+    backgroundColor: "content-box",
+    border: "2px solid green",
+    color: "white",
+    borderRadius: "10px",
+}));
+
+export const WordleHero = styled(Typography)(() => ({
+    color: "green",
+    width: "10%",
+    textAlign: "center",
+    margin: "20px auto",
+    borderRadius: "10px",
+    padding: "10px",
+    fontSize: FONT_XS,
+    "@media (max-width: 1200px)": {
+        fontSize: FONT_SMALL,
+    },
+    "@media (max-width: 600px)": {
+        minHeight: "405px",
+        display: "flex",
+        alignItems: "center",
+    },
+}));
