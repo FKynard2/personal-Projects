@@ -7,6 +7,16 @@ import PROJECTS from "./Nav/Projects/Projects";
 import APPS from "./Nav/Apps/Apps";
 //< This is for the projects section routes
 import UPWORK from "./Nav/Projects/UpworkFolder/Upwork";
+import LoginForm from "./Nav/Projects/UpworkFolder/loginform";
+import JobBoard from "./Nav/Projects/UpworkFolder/JobBoard";
+//< This is for UPWORK 
+import { useState } from "react";
+
+// import JobBoard from "./JobBoard";
+import JobDetail from "./Nav/Projects/UpworkFolder/JobDetail";
+import JOBS from "./Nav/Projects/UpworkFolder/jobs";
+// import * as React from "react";
+
 import BINACE from "./Nav/Projects/BinaceFolder/Binace";
 import UBER from "./Nav/Projects/UberFolder/Uber";
 //< This for the game section routes
@@ -18,7 +28,25 @@ import MAXSTRONG from "./Nav/Apps/MaxStrongApp/MaxStrong";
 import DASHCAM from "./Nav/Apps/CamApp/DashCam";
 import FOODAPP from "./Nav/Apps/FoodApp/FoodAppFile";
 
+
+
+
 export default function App() {
+
+const [allJobs, setAllJobs] = useState(JOBS);
+const catgories = [];
+
+for (let job of allJobs) {
+    if (!catgories.includes(job.category)) {
+        catgories.push(job.category);
+    }
+}
+const optionFilter = [];
+for (let value of catgories) {
+    optionFilter.push({ category: value });
+}
+
+
     return (
         <div className="App">
             <Router>
@@ -30,6 +58,26 @@ export default function App() {
                     <Route path="/Apps" element={<APPS />} />
                     {/* These are for the routes on the project page */}
                     <Route path="/Upwork" element={<UPWORK />} />
+                    <Route path="/Upwork" element={<LoginForm />} />
+                    <Route
+                        path="/jobs"
+                        element={
+                            <JobBoard
+                                allJobs={allJobs}
+                                optionFilter={optionFilter}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/job/:id"
+                        element={
+                            <JobDetail
+                                allJobs={allJobs}
+                                optionFilter={optionFilter}
+                            />
+                        }
+                    />
+                    {/* End for the Upwork Project */}
                     <Route path="/Binace" element={<BINACE />} />
                     <Route path="/Uber" element={<UBER />} />
                     {/* These are for the routes on the game page */}

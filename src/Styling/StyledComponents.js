@@ -3,6 +3,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import WestIcon from "@mui/icons-material/West";
+import Input from "@mui/material/Input";
+import InputBase from "@mui/material/InputBase";
 // import { keyframes, styled } from "styled-components";
 import {
     STYLEING_YELLOW,
@@ -21,6 +23,10 @@ export const FONT_LARGE = "clamp(1.44rem, calc(1.10rem + 1.69vw), 3.13rem)";
 export const FONT_XL = "clamp(1.73rem, calc(1.29rem + 2.18vw), 3.91rem)";
 export const FONT_XXL = "clamp(2.07rem, calc(1.51rem + 2.81vw), 4.88rem)";
 export const FONT_XXXL = "clamp(2.49rem, calc(1.77rem + 3.62vw), 6.10rem)";
+
+export const PRIMARY_GREEN = "#39B54A";
+const SECONDARY_NAVY = "#2B5468";
+const STEP_MEDIUM = "clamp(1.20rem, calc(0.94rem + 1.30vw), 2.50rem)";
 
 export const HODGIE_GOLD = "#907d29";
 export const HODGIE_BROWN = "#6b5709";
@@ -291,3 +297,245 @@ export const WordleHero = styled(Typography)(() => ({
         alignItems: "center",
     },
 }));
+
+//< This for upwork files 
+
+export const LoginBox = styled(Box)(() => ({
+    backgroundColor: "white",
+    width: "400px",
+    aspectRatio: "4/3",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "40px",
+    boxSizing: "border-box",
+}));
+
+export const LoginContainer = styled(Box)(() => ({
+    width: "100%",
+    height: "100vh",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+}));
+export const LoginInput = styled(Input)`
+    border: 1px solid ${PRIMARY_GREEN};
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+    border-bottom: "1px solid green";
+    &:after {
+        border-bottom: 2px solid #c094fc;
+    }
+    &:hover&:before {
+        border-bottom: 2px solid ${PRIMARY_GREEN};
+    }
+`;
+
+export const PrimaryButton = styled(Button)`
+    background: ${PRIMARY_GREEN};
+    width: 85%;
+    border-radius: 20px;
+    &:hover {
+        background-color: ${SECONDARY_NAVY};
+    }
+`;
+
+export const ContentWarpper = styled(Box)(() => ({
+    width: "100%",
+    height: "91.7vh",
+    backgroundColor: "lightgrey",
+    overflow: "scroll"
+}));
+
+
+export const CatContentWrapper = styled(Box)`
+    max-width: 1300px;
+    width: 70%;
+    height: 85%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    @media (max-width: 800px) {
+        width: 85%;
+    }
+    @media (max-width: 550px) {
+        width: 95%;
+        flex-direction: column;
+    }
+`;
+
+export const CatWrapper = styled(Box)`
+    width: 25%;
+    @media (max-width: 550px) {
+        width: 100%;
+    }
+`;
+export const ContentWrapper = styled(Box)`
+    width: 75%;
+    @media (max-width: 550px) {
+        width: 100%;
+    }
+`;
+
+export const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: "black",
+    "& .MuiInputBase-input": {
+        padding: theme.spacing(1, 1, 1, 0),
+        // vertical padding + font size from searchIcon
+        paddingLeft: `calc(1em + ${theme.spacing(1)})`,
+
+        backgroundColor: "white",
+    },
+}));
+
+export const TopToolBar = styled(Box)`
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    @media (min-width: 1800px) {
+        width: 115rem;
+        margin: auto;
+    }
+`;
+
+export const FindWorkWarpper = styled(Box)`
+    max-width: 1300px;
+    width: 70%;
+    height: 15%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @media (max-width: 800px) {
+        width: 85%;
+    }
+
+    @media (max-width: 550px) {
+        margin-top: 2rem;
+        width: 95%;
+        flex-direction: column;
+    }
+`;
+
+export const FindWorkBox = styled(Box)(() => ({
+    width: "32%",
+    fontSize: `${STEP_MEDIUM}`,
+    fontWeight: "bold",
+    textAlign: "left",
+}));
+
+export const SearchBarBox = styled(Box)(() => ({
+    width: "100%",
+}));
+
+export const Search = styled("div")(({ theme }) => ({
+    position: "relative",
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: "white",
+    display: "flex",
+    marginLeft: 0,
+    width: "100%",
+}));
+export const SearchIconWrapper = styled("div")(({ theme }) => ({
+    padding: theme.spacing(0, 1),
+    backgroundColor: PRIMARY_GREEN,
+    color: "white",
+    height: "100%",
+    position: "absolute",
+    right: "0px",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+}));
+
+export const ALT_STYLES = {
+    color: PRIMARY_GREEN,
+    fontWeight: "bold",
+    paddingInline: "0px",
+    textAlign: "left",
+    justifyContent: "flex-start",
+};
+
+export const InputB = styled("input")(({ theme }) => ({
+    width: "100%",
+    padding: "10px",
+    border: "none",
+    backgroundColor: "transparent",
+    color: theme.palette.mode === "light" ? "#000" : "#fff",
+    borderColor: "white",
+    outline: "none", // add this line to remove the focused border
+}));
+
+export const ListboxB = styled("ul")(({ theme }) => ({
+    width: "100%",
+    margin: 0,
+    padding: 0,
+    zIndex: 1,
+    position: "absolute",
+    listStyle: "none",
+    backgroundColor: theme.palette.mode === "light" ? "#fff" : "#000",
+    overflow: "auto",
+    maxHeight: 200,
+    border: "1px solid rgba(0,0,0,.25)",
+    "& li.Mui-focused": {
+        backgroundColor: "#4a8df6",
+        color: "white",
+        cursor: "pointer",
+    },
+    "& li:active": {
+        backgroundColor: "#2977f5",
+        color: "white",
+    },
+}));
+
+export const LabelB = styled("label")({
+    display: "block",
+});
+export const DetailsContainer = styled(Box)`
+    max-width: 85rem;
+    width: 67%;
+    margin: auto;
+    display: flex;
+    padding-top: 9rem;
+    @media (max-width: 550px) {
+        width: 90%;
+        flex-direction: column;
+    }
+`;
+export const DetailsHeros = styled(Box)`
+    max-width: 80rem;
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    @media (max-width: 550px) {
+        width: 100%;
+    }
+`;
+export const SideBars = styled(Box)`
+    min-width: 220px;
+    border-radius: 5px;
+    background-color: white;
+    max-height: 27rem;
+    margin-left: 4rem;
+    width: 35%;
+    max-width: 350px;
+    @media (max-width: 550px) {
+        width: 100%;
+        margin-left: 0px;
+        margin: auto;
+    }
+`;
+
+export const SecondaryButton = styled(Button)`
+    background: transparent;
+    border: 1px solid ${PRIMARY_GREEN};
+    width: 85%;
+    border-radius: 20px;
+    &:hover {
+        background-color: ${SECONDARY_NAVY};
+    }
+`;
