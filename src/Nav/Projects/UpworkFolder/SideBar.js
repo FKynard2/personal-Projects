@@ -18,13 +18,17 @@ export default function SideBar({ allJobs }) {
     return (
         <SideBars>
             <PrimaryButton
-                sx={{ marginBlock: "25px 10px" }}
+                sx={{ marginBlock: "25px 10px", marginInline: "6%" }}
                 variant="contained"
             >
                 Submit a Porposal
             </PrimaryButton>
             <SecondaryButton
-                sx={{ marginBlock: "10px 20px", color: PRIMARY_GREEN }}
+                sx={{
+                    marginBlock: "10px 20px",
+                    color: PRIMARY_GREEN,
+                    marginInline: "6%",
+                }}
                 variant="contained"
             >
                 <img

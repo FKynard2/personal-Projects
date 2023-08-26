@@ -7,7 +7,7 @@ import SideBar from "./SideBar";
 
 export default function JobDetail({ allJobs, optionFilter }) {
     return (
-        <Box>
+        <Box style={{ backgroundColor: "lightgray", color: "black" }}>
             <TopNav optionFilter={optionFilter} />
             <DetailsContainer>
                 <DetailsHero allJobs={allJobs}></DetailsHero>

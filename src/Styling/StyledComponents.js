@@ -346,7 +346,8 @@ export const ContentWarpper = styled(Box)(() => ({
     width: "100%",
     height: "91.7vh",
     backgroundColor: "lightgrey",
-    overflow: "scroll"
+    overflow: "scroll",
+    color: "black",
 }));
 
 
@@ -501,6 +502,7 @@ export const DetailsContainer = styled(Box)`
     margin: auto;
     display: flex;
     padding-top: 9rem;
+    height: 88vh;
     @media (max-width: 550px) {
         width: 90%;
         flex-direction: column;
@@ -509,6 +511,7 @@ export const DetailsContainer = styled(Box)`
 export const DetailsHeros = styled(Box)`
     max-width: 80rem;
     width: 80%;
+    height: 100%;
     margin: auto;
     text-align: left;
     @media (max-width: 550px) {
@@ -533,6 +536,7 @@ export const SideBars = styled(Box)`
 export const SecondaryButton = styled(Button)`
     background: transparent;
     border: 1px solid ${PRIMARY_GREEN};
+    
     width: 85%;
     border-radius: 20px;
     &:hover {

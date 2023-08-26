@@ -22,3 +22,16 @@ button:disabled {
   cursor: not-allowed;
  
 }
+
+.styled-div {
+  width: 100%;
+}
+
+@media (max-width: 550px) {
+  .button-stack {
+    flex-direction: row !important;
+  }
+  .cat-button {
+    margin: 5px !important;
+  }
+}
