@@ -25,6 +25,10 @@ import CONNECTFOUR from "./Nav/Games/ConnectFour/ConnectFour";
 import WORDLE from "./Nav/Games/Wordle/Wordle";
 //< This for the app section routes
 import MAXSTRONG from "./Nav/Apps/MaxStrongApp/MaxStrong";
+import ThisApp from "./Nav/Apps/MaxStrongApp/ThisApp";
+import AboutUs from "./Nav/Apps/MaxStrongApp/AboutUs";
+import Contacts from "./Nav/Apps/MaxStrongApp/Contacts";
+
 import DASHCAM from "./Nav/Apps/CamApp/DashCam";
 import FOODAPP from "./Nav/Apps/FoodApp/FoodAppFile";
 
@@ -86,6 +90,10 @@ for (let value of catgories) {
                     <Route path="/Wordle" element={<WORDLE />} />
                     {/* These are for the routes on the app page */}
                     <Route path="/MaxStrong" element={<MAXSTRONG />} />
+                    <Route path="/ThisApp" element={<ThisApp />} />
+                    <Route path="/AboutUs" element={<AboutUs />} />
+                    <Route path="/Contacts" element={<Contacts />} />
+
                     <Route path="/DashCam" element={<DASHCAM />} />
                     <Route path="/FoodApp" element={<FOODAPP />} />
                 </Routes>

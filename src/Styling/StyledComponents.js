@@ -5,7 +5,8 @@ import Typography from "@mui/material/Typography";
 import WestIcon from "@mui/icons-material/West";
 import Input from "@mui/material/Input";
 import InputBase from "@mui/material/InputBase";
-// import { keyframes, styled } from "styled-components";
+// import { styled } from "styled-components";
+
 import {
     STYLEING_YELLOW,
     STYLEING_GREEN,
@@ -23,6 +24,8 @@ export const FONT_LARGE = "clamp(1.44rem, calc(1.10rem + 1.69vw), 3.13rem)";
 export const FONT_XL = "clamp(1.73rem, calc(1.29rem + 2.18vw), 3.91rem)";
 export const FONT_XXL = "clamp(2.07rem, calc(1.51rem + 2.81vw), 4.88rem)";
 export const FONT_XXXL = "clamp(2.49rem, calc(1.77rem + 3.62vw), 6.10rem)";
+
+
 
 export const PRIMARY_GREEN = "#39B54A";
 const SECONDARY_NAVY = "#2B5468";
